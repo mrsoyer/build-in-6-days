@@ -5,9 +5,6 @@
 ## Essentiels
 
 * [Livrables Attendus](docs-projet/LIVRABLES.md)
-* [Notation](docs-projet/NOTATION.md)
-* [Jury Final](docs-projet/JURY.md)
-* [Checklist](docs-projet/CHECKLIST_PROJET.md)
 
 ## Documentation
 
@@ -36,12 +33,3 @@
 ### Méthodologie
 
 * [Apprendre à Apprendre](docs-projet/docs/APPRENDRE-A-APPRENDRE.md)
-
-## Templates
-
-* [Cursor Rules Principal](docs-projet/templates/.cursorrules-TEMPLATE-PRINCIPAL)
-* [Cursor Rules Feature](docs-projet/templates/.cursorrules-TEMPLATE-FEATURE)
-* [Cursor Rules Installation](docs-projet/templates/.cursorrules-TEMPLATE-INSTALLATION)
-* [Cursor Rules Documentation](docs-projet/templates/.cursorrules-TEMPLATE-DOCS)
-* [README Template](docs-projet/templates/README-TEMPLATE.md)
-* [Notion Structure](docs-projet/templates/NOTION-STRUCTURE-TEMPLATE.md)
