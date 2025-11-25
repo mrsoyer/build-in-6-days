@@ -170,17 +170,18 @@
 
 ## 8. Workflows & Automatisations
 
-### Workflows Supabase
-- Minimum 1-2 workflows configurés
-- Triggers fonctionnels (ex: après insert)
-- Actions pertinentes (ex: envoi email, mise à jour)
-- Documentation des workflows
+### Workflows Airtable
+- Minimum 1-2 workflows configurés dans Airtable
+- Triggers fonctionnels (ex: après création record, modification)
+- Actions pertinentes (ex: envoi email, mise à jour champ, notification)
+- Documentation des workflows dans Notion
 
 ### Exemples de Workflows
-- Notification après création d'événement
-- Mise à jour automatique de timestamps
-- Validation de données
-- Synchronisation entre tables
+- Notification après création d'un nouvel événement
+- Mise à jour automatique de timestamps (updated_at)
+- Validation de données avant sync
+- Envoi d'email de confirmation
+- Notification Slack pour événements importants
 
 ---
 
@@ -213,7 +214,7 @@ Pour avoir une note correcte (15/20 minimum), vous devez avoir :
 - ✅ Base de données avec 3 tables et données mockées
 - ✅ 2 fonctions PostgreSQL documentées
 - ✅ App déployée sur Netlify (URL accessible)
-- ✅ Au moins 1 workflow Supabase
+- ✅ Au moins 1 workflow Airtable configuré
 
 ### Recommandés pour 17+/20
 - Au moins 1 bonus technique (OAuth, rôles, ou dashboard)
