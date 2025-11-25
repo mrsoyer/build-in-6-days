@@ -1,9 +1,4 @@
 root: ./
-
 structure:
-  readme: README.md
-  summary: SUMMARY.md
-
-redirects:
-  previous/page: new-page.md
-
+    readme: docs-projet/README.md
+    summary: SUMMARY.md
