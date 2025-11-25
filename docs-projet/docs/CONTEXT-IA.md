@@ -27,9 +27,9 @@ L'IA (Cursor, Claude, etc.) génère du code basé sur le **contexte** que vous 
 La **context window** est la **quantité d'information** que l'IA peut traiter en une seule fois.
 
 **Limites typiques** :
-- Claude 3.5 Sonnet : 200K tokens (~150K mots)
-- GPT-4 : 128K tokens
-- GPT-3.5 : 16K tokens
+- Claude Sonnet 4.5 : 200K tokens (~150K mots)
+- GPT-4 : 128K tokens (~96K mots)
+- GPT-3.5 : 16K tokens (~12K mots)
 
 **1 token** ≈ 0.75 mots en anglais
 

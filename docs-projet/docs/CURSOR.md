@@ -6,7 +6,7 @@
 
 ## 🎯 Vue d'ensemble
 
-**Cursor** est un IDE basé sur VS Code qui intègre des modèles d'IA (GPT-4, Claude 3.5 Sonnet) pour accélérer le développement.
+**Cursor** est un IDE basé sur VS Code qui intègre des modèles d'IA (GPT-4, Claude Sonnet 4.5) pour accélérer le développement.
 
 **Site officiel** : https://cursor.com  
 **Documentation** : https://cursor.com/docs  
@@ -348,7 +348,7 @@ Use @notion MCP to update automatically.
 ### Économie de Tokens
 
 **1 token** ≈ 0.75 mots  
-**Context window** : ~200K tokens (Claude 3.5 Sonnet)
+**Context window** : ~200K tokens (Claude Sonnet 4.5)
 
 #### Techniques d'Économie
 
@@ -486,7 +486,7 @@ Changer de contexte rapidement avec @mentions de rules spécifiques.
 - **Inclus** :
   - 500 fast premium requests/mois
   - Unlimited slow requests
-  - GPT-4, Claude 3.5 Sonnet
+  - GPT-4, Claude Sonnet 4.5
   - Mode Composer illimité
   - Privacy mode
 
