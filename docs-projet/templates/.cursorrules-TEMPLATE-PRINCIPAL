@@ -1,0 +1,193 @@
+# Project: [NOM DU PROJET]
+# Tech Stack: React 18 + TypeScript + Supabase + Airtable + Tailwind CSS
+
+## 🎯 Project Overview
+Brief description of the project and its purpose.
+
+---
+
+## 🔌 MCP Configuration
+
+This project uses 3 MCPs for AI-assisted development:
+
+- **@notion**: Project documentation
+  - Page ID: [NOTION_PAGE_ID]
+  - Use for: Documentation updates, changelog, roadmap
+
+- **@supabase**: Database operations
+  - Project URL: [SUPABASE_URL]
+  - Use for: SQL queries, schema inspection, data operations
+
+- **@airtable**: Data entry interface
+  - Base ID: [AIRTABLE_BASE_ID]
+  - Use for: Data insertion, admin operations
+
+---
+
+## 🏗️ Architecture
+
+### Data Flow
+```
+Admin/Ops → Airtable (WRITE) ─sync→ Supabase (READ) ← Application
+```
+
+**Important Rules**:
+- ✅ Application READS from Supabase only
+- ✅ Admin/Ops WRITES to Airtable only
+- ✅ Sync is automatic and bidirectional
+
+### Authentication
+- Provider: Supabase Auth
+- Methods: Email/Password (+ OAuth if implemented)
+- Protected routes: Use ProtectedRoute HOC
+
+---
+
+## 💻 Technical Constraints
+
+### Language & Framework
+- **TypeScript**: Strict mode enabled
+- **React**: 18+ with functional components only
+- **Build tool**: Vite
+- **Package manager**: npm
+
+### Code Style
+- **Components**: Functional components with hooks
+- **State management**: Zustand (or Context API)
+- **Styling**: Tailwind CSS (no inline styles)
+- **Formatting**: Prettier + ESLint
+
+### File Naming
+- Components: PascalCase (`UserCard.tsx`)
+- Utilities: camelCase (`formatDate.ts`)
+- Pages: PascalCase (`Dashboard.tsx`)
+- Types: PascalCase (`User.ts`)
+
+---
+
+## 📁 File Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # Base UI components (Button, Input, Card)
+│   ├── auth/           # Auth-related components
+│   └── features/       # Feature-specific components
+├── pages/              # Page components (one per route)
+├── hooks/              # Custom React hooks
+├── utils/              # Helper functions
+├── types/              # TypeScript type definitions
+├── api/                # API calls and data fetching
+├── config/             # Configuration files (supabase, etc.)
+└── contexts/           # React contexts
+```
+
+---
+
+## 🎨 Code Conventions
+
+### Components
+```typescript
+// ✅ Good: Functional component with TypeScript
+interface Props {
+  title: string;
+  onSave: () => void;
+}
+
+export function MyComponent({ title, onSave }: Props) {
+  return <div>{title}</div>;
+}
+
+// ❌ Bad: No types, class component
+export class MyComponent extends React.Component {
+  render() { ... }
+}
+```
+
+### Hooks
+```typescript
+// ✅ Good: Custom hook with proper naming
+export function useUserData(userId: string) {
+  const [data, setData] = useState(null);
+  // ...
+  return { data, loading, error };
+}
+```
+
+### API Calls
+```typescript
+// ✅ Good: Centralized in api/
+export async function getUsers() {
+  const { data, error } = await supabase
+    .from('users')
+    .select('*');
+  if (error) throw error;
+  return data;
+}
+```
+
+### Error Handling
+```typescript
+// ✅ Good: User-friendly messages + technical logs
+try {
+  await saveData();
+  toast.success('Data saved successfully');
+} catch (error) {
+  console.error('Save failed:', error);
+  toast.error('Failed to save data. Please try again.');
+}
+```
+
+---
+
+## 🔗 Linked Cursor Rules
+
+This project uses modular cursor rules:
+
+- **@cursorrules-auth**: Authentication features
+- **@cursorrules-dashboard**: Dashboard components
+- **@cursorrules-docs**: Documentation generation
+- **@cursorrules-installation**: Project setup
+
+Call specific rules when working on related features.
+
+---
+
+## 📚 Documentation
+
+- All functions: Use JSDoc comments
+- Complex logic: Add inline comments
+- TODOs: Format as `// TODO: [description]`
+- Updates: Use @notion MCP to update documentation
+
+---
+
+## ✅ Quality Standards
+
+### Before Committing
+- [ ] No TypeScript errors
+- [ ] No ESLint errors
+- [ ] Code formatted (Prettier)
+- [ ] All imports used
+- [ ] No console.logs (except intentional)
+
+### Testing
+- [ ] Component renders without errors
+- [ ] User flows work end-to-end
+- [ ] Mobile responsive
+- [ ] Accessibility (ARIA labels where needed)
+
+---
+
+## 🚀 Deployment
+
+- **Platform**: Netlify
+- **Build command**: `npm run build`
+- **Publish directory**: `dist`
+- **Environment variables**: Set in Netlify dashboard
+
+---
+
+**Last updated**: [DATE]
+**Team**: [TEAM MEMBERS]
+

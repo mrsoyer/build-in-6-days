@@ -1,0 +1,243 @@
+# Project Installation Guide
+
+## 📋 Prerequisites Check
+
+Before starting, ensure you have:
+- ✅ **Node.js** >= 18.0.0
+- ✅ **npm** >= 9.0.0
+- ✅ **Git**
+
+Check versions:
+```bash
+node --version
+npm --version
+git --version
+```
+
+---
+
+## 🚀 Installation Steps
+
+### 1. Clone Repository
+```bash
+git clone [REPOSITORY_URL]
+cd [project-name]
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+If you encounter errors:
+```bash
+# Try clean install
+npm clean-install
+
+# Or clear cache first
+npm cache clean --force
+npm install
+```
+
+### 3. Environment Setup
+
+Copy example environment file:
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your values:
+```env
+# Supabase
+VITE_SUPABASE_URL=https://[your-project].supabase.co
+VITE_SUPABASE_ANON_KEY=eyJ[your-anon-key]
+
+# Airtable (if needed client-side)
+VITE_AIRTABLE_API_KEY=key[your-api-key]
+VITE_AIRTABLE_BASE_ID=app[your-base-id]
+```
+
+### 4. Database Setup (if applicable)
+
+If the project requires database migrations:
+```bash
+npm run db:migrate
+```
+
+Seed database with test data (optional):
+```bash
+npm run db:seed
+```
+
+### 5. Start Development Server
+```bash
+npm run dev
+```
+
+The app should open at `http://localhost:5173`
+
+---
+
+## 🔧 Configuration Details
+
+### Required Environment Variables
+
+| Variable | Description | Where to find |
+|----------|-------------|---------------|
+| `VITE_SUPABASE_URL` | Supabase project URL | Supabase Dashboard → Settings → API |
+| `VITE_SUPABASE_ANON_KEY` | Supabase anonymous key | Supabase Dashboard → Settings → API |
+| `VITE_AIRTABLE_API_KEY` | Airtable API key | Airtable → Account → API |
+| `VITE_AIRTABLE_BASE_ID` | Airtable base ID | In the URL of your base |
+
+### Optional Environment Variables
+
+```env
+# Analytics (optional)
+VITE_ANALYTICS_ID=
+
+# Feature flags (optional)
+VITE_ENABLE_OAUTH=true
+```
+
+---
+
+## ✅ Verification
+
+### 1. Check Dev Server
+- Navigate to `http://localhost:5173`
+- Page should load without errors
+
+### 2. Check Console
+- Open browser DevTools (F12)
+- Console tab should have no red errors
+- Network tab should show successful API calls
+
+### 3. Test Authentication (if applicable)
+- Try to access protected route
+- Should redirect to login
+- Login with test credentials
+- Should access protected content
+
+### 4. Test Database Connection
+- Check if data loads from Supabase
+- Try creating/updating a record
+- Verify sync with Airtable (if configured)
+
+---
+
+## 🐛 Troubleshooting
+
+### Port 5173 Already in Use
+```bash
+# Kill the process
+lsof -ti:5173 | xargs kill -9
+
+# Or use a different port
+npm run dev -- --port 3000
+```
+
+### Dependencies Installation Fails
+```bash
+# Remove node_modules and lockfile
+rm -rf node_modules package-lock.json
+
+# Reinstall
+npm install
+```
+
+### Environment Variables Not Found
+- Ensure `.env` file exists in project root
+- Check variable names start with `VITE_` (for Vite projects)
+- Restart dev server after changing `.env`
+
+### Supabase Connection Error
+- Verify URL is correct (https://xxx.supabase.co)
+- Verify anon key is correct
+- Check Supabase project is not paused
+- Check network/firewall settings
+
+### Airtable Sync Issues
+- Verify API key has correct permissions
+- Verify Base ID is correct
+- Check Supabase extension is installed in Airtable
+- Verify table/field mapping is correct
+
+---
+
+## 🧪 Running Tests
+
+```bash
+# Run all tests
+npm run test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+All tests should pass before considering setup complete.
+
+---
+
+## 📚 Additional Setup
+
+### MCP Configuration (for Cursor users)
+
+Create/update `~/.cursor/mcp-settings.json`:
+```json
+{
+  "mcpServers": {
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-notion"],
+      "env": {
+        "NOTION_API_KEY": "secret_[your-notion-token]"
+      }
+    },
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-supabase"],
+      "env": {
+        "SUPABASE_URL": "https://[your-project].supabase.co",
+        "SUPABASE_SERVICE_KEY": "eyJ[your-service-key]"
+      }
+    }
+  }
+}
+```
+
+### IDE Setup (VSCode)
+
+Recommended extensions:
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- TypeScript Vue Plugin (Volar)
+
+---
+
+## ✅ Setup Complete!
+
+If all steps succeeded:
+- ✅ Dependencies installed
+- ✅ Environment configured
+- ✅ Dev server running
+- ✅ Tests passing
+- ✅ Can access the application
+
+You're ready to start developing!
+
+---
+
+## 🆘 Still Having Issues?
+
+1. Check the [GitHub Issues](link-to-issues)
+2. Ask in team chat/Discord
+3. Review the [Documentation](link-to-docs)
+
+---
+
+**Last updated**: [DATE]
+

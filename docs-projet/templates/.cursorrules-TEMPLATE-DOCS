@@ -1,0 +1,342 @@
+# Documentation Rules
+
+## 📚 Purpose
+
+This cursor rule defines how documentation is generated, maintained, and updated throughout the project lifecycle.
+
+---
+
+## 🎯 Documentation Philosophy
+
+- **Always up-to-date**: Documentation should reflect current state
+- **Dual audience**: Write for both technical and non-technical readers
+- **Automated when possible**: Use @notion MCP for automatic updates
+- **Clear and concise**: Avoid jargon, use examples
+
+---
+
+## 📝 Documentation Style
+
+### Tone & Voice
+- **Professional but friendly**
+- **Clear and direct**
+- **Active voice** preferred over passive
+- **Second person** for instructions ("You can...", "To do this...")
+
+### Language
+- **Code**: English (comments, variable names)
+- **Business docs**: [French/English - choose based on project]
+- **Technical docs**: English
+- **User guides**: [Language of target audience]
+
+---
+
+## 🔗 Notion Integration
+
+### Use @notion MCP for:
+- Creating new documentation pages
+- Updating existing content
+- Generating changelog entries
+- Updating roadmap status
+
+### Automatic Updates
+
+When you complete a feature:
+```
+@notion Update documentation:
+- Add feature to Features page
+- Update changelog
+- Mark milestone complete in roadmap
+```
+
+When you change architecture:
+```
+@notion Update Architecture page with new:
+- Database schema
+- API endpoints
+- Authentication flow
+```
+
+---
+
+## 📋 Documentation Structure
+
+### Main Sections Required
+
+1. **Overview**
+   - Project description
+   - Vision & goals
+   - Key features
+   - Team members
+
+2. **Architecture**
+   - Tech stack
+   - System design
+   - Database schema
+   - Data flow diagrams
+
+3. **Features**
+   - List of features
+   - Description for each
+   - Screenshots/demos
+   - Usage instructions
+
+4. **API Reference** (if applicable)
+   - Endpoints list
+   - Request/response formats
+   - Authentication
+   - Error codes
+   - Examples
+
+5. **Installation**
+   - Prerequisites
+   - Step-by-step guide
+   - Environment variables
+   - Troubleshooting
+
+6. **Deployment**
+   - Deployment process
+   - Environment setup
+   - CI/CD pipeline
+   - Monitoring
+
+7. **Team & Contributions**
+   - Team members
+   - Roles
+   - Who did what
+   - How to contribute
+
+---
+
+## 💻 Code Documentation
+
+### Functions & Components
+
+Use JSDoc format:
+```typescript
+/**
+ * Fetches user data from Supabase
+ * @param userId - The UUID of the user
+ * @returns Promise with user data or null
+ * @throws {Error} If database connection fails
+ * 
+ * @example
+ * const user = await getUserData('123-456-789');
+ * console.log(user.email);
+ */
+export async function getUserData(userId: string): Promise<User | null> {
+  // Implementation
+}
+```
+
+### Complex Logic
+
+Add inline comments for non-obvious code:
+```typescript
+// Calculate discount based on user tier
+// Bronze: 5%, Silver: 10%, Gold: 15%, Platinum: 20%
+const discount = tierDiscounts[user.tier] || 0;
+```
+
+### TODOs
+
+Format consistently:
+```typescript
+// TODO: Add error handling for network failures
+// TODO: Optimize this query (currently O(n²))
+// TODO: Refactor to use new API endpoint
+```
+
+---
+
+## 📊 Changelog
+
+### Format
+
+Use semantic versioning and keep-a-changelog format:
+
+```markdown
+# Changelog
+
+## [1.2.0] - 2024-12-01
+
+### Added
+- OAuth Google authentication
+- Dashboard with real-time stats
+- Export to CSV functionality
+
+### Changed
+- Improved error messages for auth failures
+- Updated UI design for mobile
+
+### Fixed
+- Bug causing infinite loop on logout
+- Timezone display issues
+```
+
+### Auto-Generation
+
+After completing a feature:
+```
+@notion Add to changelog:
+Version [X.Y.Z] - [Date]
+Added: [Feature description]
+```
+
+---
+
+## 🗺️ Roadmap
+
+### Structure
+
+```
+Phase 1: Foundation (Week 1-2)
+- [✅] User authentication
+- [✅] Database setup
+- [🔄] Basic CRUD operations
+
+Phase 2: Core Features (Week 3-4)
+- [📋] Dashboard
+- [📋] Advanced filters
+- [📋] Export functionality
+
+Phase 3: Polish (Week 5-6)
+- [📋] Testing
+- [📋] Performance optimization
+- [📋] Documentation
+```
+
+Legend:
+- ✅ Completed
+- 🔄 In Progress
+- 📋 Planned
+
+---
+
+## 📸 Visual Documentation
+
+### Screenshots
+
+- Include screenshots for key features
+- Annotate with arrows/highlights for clarity
+- Update when UI changes significantly
+
+### Diagrams
+
+Use tools like:
+- Excalidraw (architecture diagrams)
+- Mermaid (flowcharts in markdown)
+- Figma (design mockups)
+
+Example Mermaid diagram:
+```mermaid
+graph LR
+    A[User] --> B[Airtable Write]
+    B -->|Sync| C[Supabase]
+    C --> D[Application Read]
+```
+
+---
+
+## 🔄 Update Triggers
+
+### Automatic Updates
+
+When these events occur, update documentation:
+
+**New Feature Merged**:
+```
+@notion Update:
+1. Add to Features page
+2. Update changelog
+3. Update roadmap (mark complete)
+```
+
+**Database Schema Change**:
+```
+@notion Update Architecture page:
+- New table: [name]
+- New fields: [list]
+- Updated schema diagram
+```
+
+**API Endpoint Added**:
+```
+@notion Update API Reference:
+- Endpoint: [method] [path]
+- Description: [what it does]
+- Parameters: [list]
+- Response format: [json example]
+```
+
+---
+
+## ✅ Documentation Checklist
+
+Before considering documentation complete:
+
+- [ ] All sections present (Overview, Architecture, Features, etc.)
+- [ ] Clear and understandable by non-tech
+- [ ] Clear and detailed enough for tech
+- [ ] Screenshots/diagrams included
+- [ ] Examples provided
+- [ ] Up-to-date with current code
+- [ ] Changelog current
+- [ ] Roadmap current
+- [ ] Team contributions documented
+
+---
+
+## 🎓 Examples
+
+### Good Documentation Example
+
+```markdown
+## User Authentication
+
+### Overview
+Users can sign up and log in using email/password or OAuth (Google, Facebook).
+
+### How It Works
+1. User enters credentials
+2. Supabase validates and creates session
+3. Session token stored in cookies
+4. User redirected to dashboard
+
+### Code Example
+\`\`\`typescript
+import { useAuth } from '@/contexts/AuthContext';
+
+function LoginPage() {
+  const { signIn } = useAuth();
+  
+  const handleSubmit = async (email, password) => {
+    await signIn(email, password);
+  };
+  
+  return <LoginForm onSubmit={handleSubmit} />;
+}
+\`\`\`
+
+### Error Handling
+- Invalid credentials: "Invalid email or password"
+- Network error: "Connection failed. Please try again."
+```
+
+### Bad Documentation Example
+
+```markdown
+## Auth
+
+Authentication system.
+
+\`\`\`typescript
+// some code
+\`\`\`
+```
+
+---
+
+**Created**: [DATE]
+**Last updated**: [DATE]
+

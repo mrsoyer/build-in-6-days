@@ -1,0 +1,24 @@
+# GitBook
+_book/
+.idea/
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+.cache/
+
+# Build
+dist/
+build/
+

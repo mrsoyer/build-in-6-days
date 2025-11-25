@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Product Building | Eugenia School x Thomas Garcia</title>
+    <meta name="description" content="Créez un produit digital complet en 6 jours avec IA et no-code. Cursor, Supabase, Airtable. Mode startup bootcamp.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <img src="https://cdn.jobs.makesense.org/projects/8395/project/1714979632628lvumldkm.png" alt="Eugenia School" class="logo">
+                <div class="nav-links">
+                    <a href="#programme">Programme</a>
+                    <a href="#stack">Stack</a>
+                    <a href="#projets">Projets</a>
+                    <a href="#profs">Intervenants</a>
+                    <a href="#inscription" class="cta-button">S'inscrire</a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#programme" onclick="toggleMenu()">Programme</a>
+        <a href="#stack" onclick="toggleMenu()">Stack</a>
+        <a href="#projets" onclick="toggleMenu()">Projets</a>
+        <a href="#profs" onclick="toggleMenu()">Intervenants</a>
+        <a href="#inscription" class="cta-button" onclick="toggleMenu()">S'inscrire</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">🚀 Formation Master 1 • 42 heures • Mode Bootcamp</div>
+            <h1 class="hero-title">
+                De l'idée au produit déployé<br>
+                <span class="gradient-text">en 6 jours</span>
+            </h1>
+            <p class="hero-subtitle">
+                Créez un produit digital complet avec IA et no-code.<br>
+                Cursor • Supabase • Airtable • Notion
+            </p>
+            <div class="hero-cta">
+                <a href="#inscription" class="button-primary">Rejoindre la formation</a>
+                <a href="#programme" class="button-secondary">Voir le programme ↓</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">42h</div>
+                    <div class="stat-label">de pratique intense</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6 jours</div>
+                    <div class="stat-label">pour créer un produit</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10×</div>
+                    <div class="stat-label">plus rapide avec IA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">learning by doing</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-gradient"></div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi cette formation est unique</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🤖</div>
+                    <h3>IA au cœur</h3>
+                    <p>Apprenez à construire AVEC l'IA, pas contre elle. Cursor + MCP pour développer 10× plus vite.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🚀</div>
+                    <h3>Mode Startup</h3>
+                    <p>Projets libres, pitch, démo. L'approche "startup intensive" dont les étudiants ont vraiment besoin.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <h3>95% Pratique</h3>
+                    <p>Pas de cours magistral. On construit, on itère, on déploie. Un projet en production à la fin.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔥</div>
+                    <h3>Stack Moderne</h3>
+                    <p>Les outils utilisés par les vraies startups aujourd'hui. Pas de technos obsolètes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Timeline -->
+    <section class="program-section" id="programme">
+        <div class="container">
+            <h2 class="section-title">Programme des 6 jours</h2>
+            <p class="section-subtitle">Chaque jour = Une victoire visible ✅</p>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 1 • Growth Hacking & Landing Page</h3>
+                            <span class="timeline-date">19/11</span>
+                        </div>
+                        <p class="timeline-description">🚀 Pas de code aujourd'hui – Focus concept business</p>
+                        <ul class="timeline-list">
+                            <li>Formation des équipes et brainstorming</li>
+                            <li>Masterclass landing page qui convertit</li>
+                            <li>Production intensive avec Lovable</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Landing page déployée + projet startup validé
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 2 • Setup Cursor + Base de données</h3>
+                            <span class="timeline-date">26/11</span>
+                        </div>
+                        <p class="timeline-description">⚙️ Installation complète de l'arsenal IA</p>
+                        <ul class="timeline-list">
+                            <li>Installation Cursor + 3 MCP (Supabase, Airtable, Notion)</li>
+                            <li>Conception schéma base de données</li>
+                            <li>Création base Airtable complète avec données mockées</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Cursor configuré + Base Airtable opérationnelle
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 3 • Sync + Auth + Mi-parcours</h3>
+                            <span class="timeline-date">03/12</span>
+                        </div>
+                        <p class="timeline-description">🔐 Infrastructure solide</p>
+                        <ul class="timeline-list">
+                            <li>Synchronisation Airtable ↔ Supabase</li>
+                            <li>Système d'authentification complet</li>
+                            <li>Mode Plan de Cursor pour architecture auth</li>
+                            <li><strong>Évaluation mi-parcours</strong> (1h30)</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Sync fonctionnelle + Auth complète + Note mi-parcours
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 4 • Développement Core + Workflows</h3>
+                            <span class="timeline-date">10/12</span>
+                        </div>
+                        <p class="timeline-description">🚀 Features principales</p>
+                        <ul class="timeline-list">
+                            <li>Debug avancé & Cursor Rules</li>
+                            <li>Développement dashboard utilisateur</li>
+                            <li>Workflows Airtable (3-5 workflows créatifs)</li>
+                            <li>Dashboard monitoring/admin</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Features développées + Workflows opérationnels
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 5 • Finalisation & Polish</h3>
+                            <span class="timeline-date">17/12</span>
+                        </div>
+                        <p class="timeline-description">✨ Perfection et préparation démo</p>
+                        <ul class="timeline-list">
+                            <li>Bug fixing prioritaire + Design UX</li>
+                            <li>Tests mobile et performance</li>
+                            <li>Documentation complète (README + Notion)</li>
+                            <li>Préparation pitch + répétitions</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Produit finalisé + Pitch prêt
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Jour 6 • Demo Day</h3>
+                            <span class="timeline-date">28/01</span>
+                        </div>
+                        <p class="timeline-description">🎤🔥 Moment de gloire</p>
+                        <ul class="timeline-list">
+                            <li>10 équipes × 15 min (pitch + démo + Q&A)</li>
+                            <li>Feedback détaillé du prof</li>
+                            <li>Awards : Best Technical, Best Design, Most Innovative...</li>
+                            <li>🏆 Célébration !</li>
+                        </ul>
+                        <div class="timeline-deliverable">
+                            <strong>Livrable :</strong> Démo réussie + Notes finales + Portfolio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="stack-section" id="stack">
+        <div class="container">
+            <h2 class="section-title">Stack Technique</h2>
+            <p class="section-subtitle">Les outils des vraies startups en 2025</p>
+            
+            <div class="stack-grid">
+                <div class="stack-card" data-aos="zoom-in">
+                    <div class="stack-icon">
+                        <img src="https://avatars.githubusercontent.com/u/159421080?s=200&v=4" alt="Cursor Logo" style="width: 80px; height: 80px; border-radius: 12px;">
+                    </div>
+                    <h3>Cursor</h3>
+                    <p>IDE IA-first avec 4 modes : Editor, Agent, Plan, Browser. MCP pour connecter tous vos outils.</p>
+                    <span class="stack-level">Expert</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stack-icon">
+                        <img src="https://avatars.githubusercontent.com/u/54469796?s=200&v=4" alt="Supabase Logo" style="width: 80px; height: 80px; border-radius: 12px;">
+                    </div>
+                    <h3>Supabase</h3>
+                    <p>PostgreSQL, Auth, API REST. Infrastructure backend complète en quelques clics.</p>
+                    <span class="stack-level">Avancé</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stack-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Airtable_Logo.svg" alt="Airtable Logo" style="width: 80px; height: 80px;">
+                    </div>
+                    <h3>Airtable</h3>
+                    <p>Base de données no-code avec workflows, vues par rôle, automations natives.</p>
+                    <span class="stack-level">Expert</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stack-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion Logo" style="width: 80px; height: 80px;">
+                    </div>
+                    <h3>Notion</h3>
+                    <p>Documentation, knowledge management, gestion de projet agile.</p>
+                    <span class="stack-level">Avancé</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stack-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" style="width: 80px; height: 80px;">
+                    </div>
+                    <h3>React/Vite</h3>
+                    <p>Framework moderne pour applications web rapides et réactives.</p>
+                    <span class="stack-level">Bases solides</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="stack-icon">
+                        <img src="https://lovable.dev/img/logo/logoblack.svg" alt="Lovable Logo" style="width: 80px; height: 80px; border-radius: 12px;">
+                    </div>
+                    <h3>Lovable</h3>
+                    <p>Génération rapide de landing pages professionnelles en quelques minutes.</p>
+                    <span class="stack-level">Utilisation</span>
+                </div>
+                <div class="stack-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="stack-icon">
+                        <img src="https://avatars.githubusercontent.com/u/7892489?s=200&v=4" alt="Netlify Logo" style="width: 80px; height: 80px;">
+                    </div>
+                    <h3>Netlify</h3>
+                    <p>Déploiement instantané et hébergement moderne pour applications web.</p>
+                    <span class="stack-level">Utilisation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projets">
+        <div class="container">
+            <h2 class="section-title">Exemples de Projets</h2>
+            <p class="section-subtitle">100% libres • Choisis par les équipes</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-emoji">💼</div>
+                    <h3>SaaS Tool</h3>
+                    <p>CRM, gestion clients, facturation automatisée</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🎥</div>
+                    <h3>Content Studio</h3>
+                    <p>Gestion contenu pour créateurs et influenceurs</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🎉</div>
+                    <h3>Event Platform</h3>
+                    <p>Gestion événements, ticketing, participants</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🏋️</div>
+                    <h3>Fitness Coach</h3>
+                    <p>Clients, séances, progression, abonnements</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🛍️</div>
+                    <h3>E-commerce / Drops</h3>
+                    <p>Inventaire, ventes, logistique, rupture stock</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-emoji">🎯</div>
+                    <h3>Marketplace</h3>
+                    <p>Mise en relation services, freelances...</p>
+                </div>
+            </div>
+
+            <div class="project-requirements">
+                <h4>Contraintes projet :</h4>
+                <div class="requirements-list">
+                    <span class="requirement">✅ Résout un vrai problème</span>
+                    <span class="requirement">✅ Cible claire</span>
+                    <span class="requirement">✅ Faisable en 42h</span>
+                    <span class="requirement">✅ Dashboard client obligatoire</span>
+                    <span class="requirement">✅ Authentification obligatoire</span>
+                    <span class="requirement">✅ Sync Airtable/Supabase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professors Section -->
+    <section class="profs-section" id="profs">
+        <div class="container">
+            <h2 class="section-title">Intervenants</h2>
+            
+            <div class="profs-grid">
+                <div class="prof-card" data-aos="fade-right">
+                    <div class="prof-image-container">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEDCxl6KYejXw/profile-displayphoto-shrink_800_800/B4EZP.U1a_HsAc-/0/1735138698407?e=1763596800&v=beta&t=XibNgmXSqOCmqwekkA2cFwlncjLuxS7Dr15oRzgdFNs" alt="Thomas Garcia" class="prof-image">
+                    </div>
+                    <h3>Thomas Garcia</h3>
+                    <p class="prof-role">Lead Instructor • CTO</p>
+                    <p class="prof-bio">
+                        De 17 ans sans diplôme à CTO grâce à l'IA. Créateur d'AdopteUneCougar, a hacké l'École 42 pour y rentrer. 
+                        Expertise growth hacking, IA et product building. Actuellement chez Gomecano.
+                    </p>
+                </div>
+
+                <div class="prof-card" data-aos="fade-left">
+                    <div class="prof-image-container">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQFZnZsfDa5K7Q/profile-displayphoto-crop_800_800/B4EZkj3TnEGwAI-/0/1757243325323?e=1763596800&v=beta&t=46vcolXjak3yzkrI0AvTFHSAPpGHT2LFFlZG5jG-huw" alt="Stéphane" class="prof-image">
+                    </div>
+                    <h3>Stéphane</h3>
+                    <p class="prof-role">Coordinateur Pédagogique</p>
+                    <p class="prof-bio">
+                        Responsable de la coordination pédagogique à Eugenia School. Garant de la qualité de l'enseignement 
+                        et de l'alignement avec les objectifs de formation des étudiants M1.
+                    </p>
+                    <div class="prof-expertise">
+                        <strong>Mission :</strong> Assurer la cohérence pédagogique et le suivi des projets étudiants.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Ce que vous allez apprendre</h2>
+            
+            <div class="skills-categories">
+                <div class="skills-category">
+                    <h3>💻 Compétences Techniques</h3>
+                    <ul>
+                        <li>Cursor : 4 modes + MCP</li>
+                        <li>Supabase : PostgreSQL, Auth, API REST</li>
+                        <li>Airtable : Bases, vues, workflows, sync</li>
+                        <li>Notion : Documentation, gestion projet</li>
+                        <li>React/Vite : Application web moderne</li>
+                        <li>Déploiement production</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>📋 Compétences Organisationnelles</h3>
+                    <ul>
+                        <li>Architecture de données</li>
+                        <li>Gestion de projet agile (Kanban)</li>
+                        <li>Documentation professionnelle</li>
+                        <li>Version control (Git, GitHub)</li>
+                        <li>Organisation fichiers/code</li>
+                        <li>Travail en équipe efficace</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3>🚀 Compétences Business</h3>
+                    <ul>
+                        <li>Growth hacking : tester avant construire</li>
+                        <li>Landing page : copywriting, conversion</li>
+                        <li>Product thinking</li>
+                        <li>Pitch startup convaincant</li>
+                        <li>Créativité et différenciation</li>
+                        <li>Vision produit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title">Résultats Concrets</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">📁</div>
+                    <h3>Portfolio</h3>
+                    <p>Projet déployé en production, présentable en entretien d'embauche</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🎯</div>
+                    <h3>Compétences Recherchées</h3>
+                    <p>IA, no-code, product building : les profils les plus demandés en 2025</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">⚡</div>
+                    <h3>Autonomie</h3>
+                    <p>Capable de continuer à construire des produits seul après la formation</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">🌐</div>
+                    <h3>Network</h3>
+                    <p>10 projets présentés = découverte du travail des autres équipes</p>
+                </div>
+            </div>
+
+            <div class="success-rate">
+                <h3>Taux de réussite attendu</h3>
+                <div class="rate-bars">
+                    <div class="rate-bar">
+                        <div class="rate-fill" style="width: 85%;">85%</div>
+                        <span>Tout fonctionne parfaitement ✅</span>
+                    </div>
+                    <div class="rate-bar">
+                        <div class="rate-fill rate-warning" style="width: 13%;">13%</div>
+                        <span>Bugs mineurs ⚠️</span>
+                    </div>
+                    <div class="rate-bar">
+                        <div class="rate-fill rate-danger" style="width: 2%;">2%</div>
+                        <span>Difficultés ⚠️</span>
+                    </div>
+                </div>
+                <p class="rate-note">💯 <strong>100% des équipes</strong> auront appris énormément</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="inscription">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à construire ton projet ?</h2>
+                <p>42 heures pour passer de l'idée au produit déployé.</p>
+                <p class="cta-highlight">🚀 "Bienvenue dans l'ère de l'IA." 🚀</p>
+                <div class="cta-info">
+                    <div class="info-item">
+                        <strong>📅 Dates</strong>
+                        <p>19/11 • 26/11 • 03/12 • 10/12 • 17/12 • 28/01</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>⏰ Horaires</strong>
+                        <p>9h30-12h30 / 13h30-17h30</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>🎓 Niveau</strong>
+                        <p>Master 1</p>
+                    </div>
+                </div>
+                <a href="https://www.eugeniaschool.com/" class="button-primary large" target="_blank">Rejoindre Eugenia School</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://cdn.jobs.makesense.org/projects/8395/project/1714979632628lvumldkm.png" alt="Eugenia School" class="logo">
+                    <p>AI-Driven Product Building<br>Master 1 • 42 heures</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="#programme">Programme</a>
+                    <a href="#stack">Stack</a>
+                    <a href="#projets">Projets</a>
+                    <a href="#profs">Intervenants</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Eugenia School</p>
+                    <a href="https://www.eugeniaschool.com/" target="_blank">www.eugeniaschool.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Eugenia School • AI-Driven Product Building • Version 1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

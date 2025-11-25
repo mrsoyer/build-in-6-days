@@ -1,0 +1,157 @@
+# Feature: [FEATURE NAME]
+
+## 📋 Context
+
+Brief description of this feature and its purpose in the project.
+
+Example: "User authentication system using Supabase Auth with email/password and optional OAuth."
+
+---
+
+## 🎯 Requirements
+
+### Functional Requirements
+- [ ] Requirement 1
+- [ ] Requirement 2
+- [ ] Requirement 3
+
+### Non-Functional Requirements
+- [ ] Performance: [specific metric]
+- [ ] Security: [security considerations]
+- [ ] Accessibility: [a11y requirements]
+
+---
+
+## 💻 Technical Implementation
+
+### File Structure
+```
+src/
+├── [feature-folder]/
+│   ├── components/
+│   ├── hooks/
+│   ├── types/
+│   └── utils/
+```
+
+### Main Components
+- **Component1**: Purpose and usage
+- **Component2**: Purpose and usage
+
+### Custom Hooks
+- **useHook1**: What it does
+- **useHook2**: What it does
+
+---
+
+## 🎨 Code Style for This Feature
+
+### Naming Conventions
+- Components: `[Feature][ComponentType]` (e.g., `AuthLoginForm`)
+- Hooks: `use[Feature][Action]` (e.g., `useAuthLogin`)
+- Types: `[Feature][Entity]` (e.g., `AuthUser`)
+
+### Example Component
+```typescript
+interface AuthLoginFormProps {
+  onSuccess: () => void;
+  onError: (error: Error) => void;
+}
+
+export function AuthLoginForm({ onSuccess, onError }: AuthLoginFormProps) {
+  // Implementation
+}
+```
+
+### Example Hook
+```typescript
+export function useAuthLogin() {
+  const login = async (email: string, password: string) => {
+    // Implementation
+  };
+  
+  return { login, loading, error };
+}
+```
+
+---
+
+## 🔗 Dependencies
+
+### External Libraries
+- Library1: Purpose
+- Library2: Purpose
+
+### Internal Dependencies
+- Module1: How it's used
+- Module2: How it's used
+
+---
+
+## 🧪 Testing Strategy
+
+### Unit Tests
+- Test component rendering
+- Test hook behavior
+- Test utility functions
+
+### Integration Tests
+- Test user flows
+- Test API interactions
+- Test error scenarios
+
+---
+
+## 📚 Documentation
+
+### Component Documentation
+Use JSDoc format:
+```typescript
+/**
+ * Auth login form component
+ * @param onSuccess - Callback when login succeeds
+ * @param onError - Callback when login fails
+ */
+```
+
+### Usage Examples
+Provide clear examples of how to use this feature:
+```typescript
+// Example usage
+<AuthLoginForm
+  onSuccess={() => navigate('/dashboard')}
+  onError={(error) => toast.error(error.message)}
+/>
+```
+
+---
+
+## 🐛 Error Handling
+
+### Expected Errors
+- Error1: How to handle
+- Error2: How to handle
+
+### Error Messages
+- User-friendly messages for the UI
+- Technical logs for debugging
+
+---
+
+## ✅ Checklist
+
+Before marking this feature as complete:
+- [ ] All requirements implemented
+- [ ] Code follows style guidelines
+- [ ] Types defined
+- [ ] Error handling in place
+- [ ] Documentation updated
+- [ ] Tests passing
+- [ ] Reviewed and tested
+
+---
+
+**Created**: [DATE]
+**Last updated**: [DATE]
+**Owner**: [TEAM MEMBER]
+
