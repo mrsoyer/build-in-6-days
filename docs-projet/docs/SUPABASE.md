@@ -1,34 +1,46 @@
-# 📚 COURS : SUPABASE
+# 📚 Supabase - Backend-as-a-Service
 
-> Base de données PostgreSQL + Auth + API temps réel
-
----
-
-## 🎯 OBJECTIFS
-
-1. Setup projet Supabase
-2. Authentification complète
-3. Créer des fonctions PostgreSQL
-4. Row Level Security (RLS)
-5. Integration avec React
+> PostgreSQL + Auth + API temps réel + Storage
 
 ---
 
-## 🚀 SETUP INITIAL
+## 🎯 Vue d'ensemble
+
+**Supabase** est une alternative open-source à Firebase, basée sur PostgreSQL. Il fournit une base de données, une authentification, du storage, et des API auto-générées.
+
+**Site officiel** : https://supabase.com  
+**Documentation** : https://supabase.com/docs  
+**Dashboard** : https://supabase.com/dashboard
+
+### Composants Principaux
+
+- **Database** : PostgreSQL 15+ avec interface SQL
+- **Auth** : Authentification complète (email, OAuth, magic links)
+- **Storage** : Stockage de fichiers
+- **Edge Functions** : Fonctions serverless
+- **Realtime** : Subscriptions temps réel
+- **API** : REST API auto-générée
+
+---
+
+## 🚀 Setup Initial
 
 ### 1. Créer le Projet
 
-1. https://supabase.com → "New project"
-2. Nom, password, région
-3. Attendre ~2 min (provisioning)
+1. Aller sur https://supabase.com/dashboard
+2. "New project"
+3. Nom, password, région
+4. Attendre ~2 min (provisioning)
 
 ### 2. Récupérer les Clés
 
 Dashboard → Settings → API
 
 - **URL** : `https://xxx.supabase.co`
-- **anon/public key** : Pour le frontend
-- **service_role key** : Pour les opérations admin (backend/MCP)
+- **anon/public key** : Pour le frontend (sécurisée par RLS)
+- **service_role key** : Pour les opérations admin (backend/MCP uniquement)
+
+⚠️ **Important** : Ne JAMAIS exposer la `service_role` key côté client !
 
 ### 3. Installation SDK
 
@@ -56,9 +68,9 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 
 ---
 
-## 🔐 AUTHENTIFICATION
+## 🔐 Authentification
 
-### Setup Auth
+### Setup Auth Context
 
 **`src/contexts/AuthContext.tsx`** :
 ```typescript
@@ -147,7 +159,8 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
 **Configuration** :
 1. Dashboard → Authentication → Providers
 2. Activer Google/Facebook
-3. Configurer OAuth credentials
+3. Configurer OAuth credentials (Client ID/Secret)
+4. Configurer les Redirect URLs
 
 **Code** :
 ```typescript
@@ -162,9 +175,13 @@ const signInWithGoogle = async () => {
 };
 ```
 
+**Documentation** :
+- Google OAuth : https://supabase.com/docs/guides/auth/social-login/auth-google
+- Facebook OAuth : https://supabase.com/docs/guides/auth/social-login/auth-facebook
+
 ---
 
-## 🗄️ BASE DE DONNÉES
+## 🗄️ Base de Données
 
 ### Créer une Table
 
@@ -191,8 +208,18 @@ const { data, error } = await supabase
   .order('date', { ascending: true });
 ```
 
+**Lecture avec Filtres** :
+```typescript
+const { data, error } = await supabase
+  .from('events')
+  .select('*')
+  .eq('organizer_id', userId)
+  .gte('date', new Date().toISOString());
+```
+
 **Insertion** :
 ```typescript
+// ⚠️ ATTENTION : Pour le projet, insérer dans Airtable, pas Supabase !
 const { data, error } = await supabase
   .from('events')
   .insert({
@@ -220,7 +247,7 @@ const { error } = await supabase
 
 ---
 
-## ⚡ FONCTIONS POSTGRESQL
+## ⚡ Fonctions PostgreSQL
 
 ### Créer une Fonction
 
@@ -277,11 +304,19 @@ BEGIN
   RETURN result;
 END;
 $$ LANGUAGE plpgsql;
+
+COMMENT ON FUNCTION get_dashboard_stats IS 'Retourne les statistiques globales du dashboard';
+```
+
+**Utilisation** :
+```typescript
+const { data, error } = await supabase.rpc('get_dashboard_stats');
+// data = { total_users: 150, total_events: 25, ... }
 ```
 
 ---
 
-## 🔒 ROW LEVEL SECURITY (RLS)
+## 🔒 Row Level Security (RLS)
 
 ### Activer RLS
 
@@ -312,19 +347,28 @@ ON events FOR INSERT
 WITH CHECK (auth.role() = 'authenticated');
 ```
 
+**Suppression par owner** :
+```sql
+CREATE POLICY "Users can delete own events"
+ON events FOR DELETE
+USING (auth.uid() = organizer_id);
+```
+
+### Tester les Policies
+
+```sql
+-- Tester en tant qu'utilisateur spécifique
+SET request.jwt.claim.sub = 'user-uuid-here';
+SELECT * FROM events;
+```
+
+**Documentation** : https://supabase.com/docs/guides/database/postgres/row-level-security
+
 ---
 
-## 🔄 SYNC AVEC AIRTABLE
+## 🔄 Synchronisation avec Airtable
 
-### Configuration
-
-1. Dashboard Supabase → SQL Editor
-2. Créer tables identiques à Airtable
-3. Dans Airtable → Extensions → Supabase
-4. Configurer URL + Service Role Key
-5. Mapper les champs
-
-### Architecture
+### Architecture (Important pour le Projet)
 
 ```
 Airtable (Écriture) ─sync→ Supabase (Lecture)
@@ -332,48 +376,81 @@ Airtable (Écriture) ─sync→ Supabase (Lecture)
      Admin                   Application
 ```
 
-**Important** : App lit UNIQUEMENT depuis Supabase
+**Règle d'or** : L'application lit UNIQUEMENT depuis Supabase, écrit dans Airtable.
+
+### Setup Sync
+
+1. **Airtable** : Installer extension "Supabase Sync"
+2. **Configuration** : Entrer URL + Service Role Key Supabase
+3. **Mapping** : Mapper tables Airtable → Supabase
+4. **Test** : Insert dans Airtable → Vérifier Supabase
+
+**Documentation Sync** :
+- Guide Supabase : https://supabase.com/docs/guides/integrations/airtable
 
 ---
 
-## 🧪 EXERCICE
+## 📚 Ressources
 
-### Exercice 1 : Setup Complet
+### Documentation Officielle
+- **Quick Start** : https://supabase.com/docs/guides/getting-started
+- **Auth Guide** : https://supabase.com/docs/guides/auth
+- **Database** : https://supabase.com/docs/guides/database
+- **Functions** : https://supabase.com/docs/guides/database/functions
+- **RLS** : https://supabase.com/docs/guides/database/postgres/row-level-security
 
-1. Créer projet Supabase
-2. Configurer auth dans React
-3. Créer pages Login/Signup
-4. Tester l'authentification
+### Frameworks Quickstarts
+- **React** : https://supabase.com/docs/guides/getting-started/quickstarts/reactjs
+- **Vite** : https://supabase.com/docs/guides/getting-started/quickstarts/react
+- **React Native / Expo** : https://supabase.com/docs/guides/getting-started/quickstarts/react-native
 
-### Exercice 2 : BDD + Fonctions
-
-1. Créer 3 tables liées
-2. Créer 2 fonctions PostgreSQL
-3. Documenter les fonctions
-4. Les appeler depuis React
-
----
-
-## 📚 RESSOURCES
-
-- [Supabase Docs](https://supabase.com/docs)
-- [Auth Guide](https://supabase.com/docs/guides/auth)
-- [PostgreSQL Functions](https://supabase.com/docs/guides/database/functions)
+### Community
+- **Discord** : https://discord.supabase.com
+- **GitHub** : https://github.com/supabase/supabase
+- **Blog** : https://supabase.com/blog
 
 ---
 
-## ✅ VALIDATION
+## 💡 Best Practices
 
-- [ ] Projet Supabase créé
-- [ ] Auth complète fonctionnelle
-- [ ] Tables créées
-- [ ] 2-3 fonctions PostgreSQL
-- [ ] RLS configuré
-- [ ] Sync Airtable active
+### Sécurité
+- ✅ Toujours activer RLS sur les tables
+- ✅ Tester les policies RLS avant déploiement
+- ⚠️ Ne JAMAIS exposer la `service_role` key côté client
+- ✅ Utiliser des policies granulaires
+- ✅ Documenter les policies
+
+### Performance
+- ✅ Utiliser les fonctions PostgreSQL pour logique complexe
+- ✅ Créer des index sur les colonnes fréquemment filtrées
+- ✅ Utiliser `.select()` pour limiter les colonnes
+- ✅ Paginer les résultats avec `.range()`
+
+### Architecture Projet
+- ✅ Lire depuis Supabase (rapide)
+- ✅ Écrire dans Airtable (interface admin)
+- ❌ Ne PAS insérer directement dans Supabase (contourne Airtable)
+- ✅ Documenter toutes les fonctions PostgreSQL
 
 ---
 
-**Durée** : 3-4h  
-**Niveau** : Intermédiaire  
-**Version** : 1.0
+## ❓ FAQ
+
+**Pourquoi lire de Supabase et écrire dans Airtable ?**
+- Supabase : Optimisé pour les lectures (PostgreSQL performant)
+- Airtable : Interface no-code pour les admins
+- Sync unidirectionnel : Airtable → Supabase
+
+**Comment tester les RLS policies ?**
+- Utiliser le SQL Editor avec `SET request.jwt.claim.sub`
+- Tester depuis l'application avec différents users
+
+**Puis-je utiliser Supabase sans RLS ?**
+- Techniquement oui, mais **fortement déconseillé** (risque de data leak)
+
+---
+
+**Dernière mise à jour** : 25 novembre 2025  
+**PostgreSQL Version** : 15.x  
+**Basé sur** : [Documentation officielle Supabase](https://supabase.com/docs)
 

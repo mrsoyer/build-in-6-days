@@ -53,19 +53,19 @@ Voir [LIVRABLES.md](LIVRABLES.md) pour le détail complet.
 
 ## 📚 Ressources Disponibles
 
-### 🎓 Cours Techniques (9 cours)
+### 📚 Documentation Technique
 
-| Cours | Quand l'utiliser |
-|-------|------------------|
-| [Cursor Rules](cours/COURS-CURSOR-RULES.md) | Dès le début - Setup projet |
-| [MCP](cours/COURS-MCP.md) | Setup initial - Configuration |
-| [Context IA](cours/COURS-CONTEXT-IA.md) | Optimiser Cursor |
-| [Notion](cours/COURS-NOTION.md) | Documentation projet |
-| [Supabase](cours/COURS-SUPABASE.md) | Base de données + Auth |
-| [Airtable](cours/COURS-AIRTABLE.md) | No-code + Sync |
-| [GitHub](cours/COURS-GITHUB.md) | Collaboration équipe |
-| [Déploiement](cours/COURS-DEPLOIEMENT.md) | Mise en ligne Netlify/Expo |
-| [PostgreSQL](cours/COURS-POSTGRESQL.md) | Fonctions SQL avancées |
+| Documentation | Quand l'utiliser |
+|---------------|------------------|
+| [Cursor](docs/CURSOR.md) | Dès le début - Setup projet |
+| [MCP](docs/MCP.md) | Setup initial - Configuration |
+| [Context IA](docs/CONTEXT-IA.md) | Optimiser Cursor |
+| [Notion](docs/NOTION.md) | Documentation projet |
+| [Supabase](docs/SUPABASE.md) | Base de données + Auth |
+| [Airtable](docs/AIRTABLE.md) | No-code + Sync |
+| [GitHub](docs/GITHUB.md) | Collaboration équipe |
+| [Déploiement](docs/DEPLOIEMENT.md) | Mise en ligne Netlify/Expo |
+| [PostgreSQL](docs/POSTGRESQL.md) | Fonctions SQL avancées |
 
 ### 🔧 Templates Prêts à l'Emploi
 
@@ -77,13 +77,14 @@ Dans le dossier `templates/` :
 - `README-TEMPLATE.md` - README GitHub
 - `NOTION-STRUCTURE-TEMPLATE.md` - Structure Notion
 
-### 📖 Documentation Officielle
+### 🎓 Méthodologie & Ressources Complémentaires
 
-Dans le dossier `02-SOURCES/` :
-- Cursor, MCP, Claude
-- Supabase, Airtable, Notion
-- Netlify, Expo
-- **Méthodologie "Apprendre à Apprendre"** (École 42)
+Dans le dossier `docs/` :
+- [Apprendre à Apprendre](docs/APPRENDRE-A-APPRENDRE.md) - Méthodologie École 42
+- [Alternatives Cursor](docs/ALTERNATIVES-CURSOR.md) - Windsurf, Copilot, Continue.dev
+- [Claude](docs/CLAUDE.md) - IA Anthropic
+- [Netlify](docs/NETLIFY.md) - Hébergement web
+- [Expo](docs/EXPO.md) - Applications mobiles
 
 ---
 
