@@ -61,7 +61,7 @@ Voir **[LIVRABLES.md](LIVRABLES.md)** pour le détail complet.
 | [MCP](docs/MCP.md) | Setup initial - Configuration des 3 MCP |
 | [Context IA](docs/CONTEXT-IA.md) | Optimiser vos prompts et contexte |
 | [Claude](docs/CLAUDE.md) | IA Anthropic (utilisée par Cursor) |
-| [Alternatives Cursor](docs/ALTERNATIVES-CURSOR.md) | Windsurf, Copilot, Continue.dev |
+| [Alternatives Cursor](docs/ALTERNATIVES-CURSOR.md) | Antigravity, Claude Code, GitHub Copilot |
 
 ### 🗄️ Backend & Données
 

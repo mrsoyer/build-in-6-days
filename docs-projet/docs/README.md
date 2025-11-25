@@ -12,7 +12,7 @@
 | [MCP](MCP.md) | Model Context Protocol - Connexion Notion, Supabase, Airtable |
 | [Context IA](CONTEXT-IA.md) | Prompt engineering et optimisation des contextes |
 | [Claude](CLAUDE.md) | IA conversationnelle Anthropic |
-| [Alternatives Cursor](ALTERNATIVES-CURSOR.md) | Windsurf, Copilot, Continue.dev, etc. |
+| [Alternatives Cursor](ALTERNATIVES-CURSOR.md) | Antigravity, Claude Code, GitHub Copilot |
 
 ## 🗄️ Backend & Données
 
