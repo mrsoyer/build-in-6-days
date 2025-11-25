@@ -9,8 +9,8 @@
 Vous avez **6 jours** et **toute cette documentation** pour construire un produit fonctionnel.
 
 **Timeline** :
-- **Demain matin** : Briefing + constitution des groupes
-- **Jours 1-5** : Vous bossez en autonomie
+- ✅ **Jour 1** : Landing page avec Lovable (terminé)
+- **Jours 2-5** : Build du projet en autonomie
 - **Jour 6 après-midi** : **Jury final** 🎤 (présentation 5 min)
 
 ---
@@ -91,14 +91,18 @@ Voir **[LIVRABLES.md](LIVRABLES.md)** pour le détail complet.
 
 ## 🎯 Stratégie Recommandée
 
-### Jour 1 : Setup + MVP
+### ✅ Jour 1 : Landing Page (Terminé)
+- Création de landing page avec Lovable
+- Validation de l'idée et du concept
+
+### Jour 2 : Setup Projet
 1. Lire [LIVRABLES.md](LIVRABLES.md) pour connaître les attendus
 2. Configurer les Cursor Rules (voir [CURSOR.md](docs/CURSOR.md))
 3. Installer les 3 MCP (voir [MCP.md](docs/MCP.md))
 4. Créer la structure Notion (voir [NOTION.md](docs/NOTION.md))
-5. Première version déployée (voir [DEPLOIEMENT.md](docs/DEPLOIEMENT.md))
+5. Setup Supabase + Airtable + Sync
 
-### Jours 2-4 : Build
+### Jours 3-4 : Build
 - Développer les features principales
 - Documenter au fur et à mesure dans Notion
 - Configurer la sync Airtable ↔ Supabase
